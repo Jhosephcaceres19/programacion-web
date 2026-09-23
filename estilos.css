@@ -1,0 +1,303 @@
+/* =========================================
+   CONFIGURACIÓN GENERAL
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #eeeeee;
+    color: #202020;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+header {
+    background-color: #ff4655;
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.header-contenido {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+header h1 {
+    margin: 0;
+    font-size: clamp(2rem, 8vw, 4rem);
+}
+
+header p {
+    font-size: clamp(1rem, 3vw, 1.3rem);
+}
+
+
+/* =========================================
+   CONTENEDOR PRINCIPAL
+   MOBILE FIRST
+========================================= */
+
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+/* =========================================
+   ASIDE / MENÚ
+========================================= */
+
+aside {
+    width: 100%;
+    background-color: #202020;
+    color: white;
+    padding: 1.5rem;
+}
+
+aside h2 {
+    color: #ff4655;
+}
+
+aside ul {
+    padding-left: 1.2rem;
+}
+
+aside li {
+    margin-bottom: 0.8rem;
+}
+
+aside a {
+    color: white;
+    text-decoration: none;
+}
+
+aside a:hover {
+    color: #ff4655;
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
+
+main {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+main h2 {
+    color: #202020;
+    border-bottom: 2px solid #ff4655;
+    padding-bottom: 0.5rem;
+    font-size: clamp(1.4rem, 4vw, 2rem);
+}
+
+main h3 {
+    color: #ff4655;
+}
+
+main p {
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   SECCIONES
+========================================= */
+
+section {
+    margin-bottom: 2.5rem;
+}
+
+
+/* =========================================
+   SECCIÓN DESTACADA
+========================================= */
+
+.destacado {
+    background-color: #202020;
+    color: white;
+    padding: clamp(1.2rem, 4vw, 2rem);
+    border-left: 5px solid #ff4655;
+    border-radius: 4px;
+}
+
+.destacado h2 {
+    color: white;
+    border-bottom: none;
+}
+
+
+/* =========================================
+   AGENTES
+   MOBILE: 1 COLUMNA
+========================================= */
+
+.agentes {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.agente {
+    background-color: white;
+    padding: 1.2rem;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+}
+
+.agente h3 {
+    margin-top: 0;
+}
+
+
+/* =========================================
+   MAPAS
+   MOBILE: 1 COLUMNA
+========================================= */
+
+.mapas {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.mapa {
+    background-color: white;
+    padding: 1.2rem;
+    border-top: 5px solid #ff4655;
+    border-radius: 4px;
+}
+
+
+/* =========================================
+   TABLA
+========================================= */
+
+.tabla-contenedor {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    min-width: 500px;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+th {
+    background-color: #202020;
+    color: white;
+}
+
+th,
+td {
+    padding: 0.8rem;
+    border: 1px solid #cccccc;
+    text-align: left;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    background-color: #111111;
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+footer p {
+    margin: 0.5rem;
+}
+
+
+/* =========================================
+   TABLET
+   600px EN ADELANTE
+========================================= */
+
+@media (min-width: 600px) {
+
+    main {
+        padding: 2rem;
+    }
+
+    .agentes {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .mapas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* =========================================
+   LAPTOP / COMPUTADORA
+   900px EN ADELANTE
+========================================= */
+
+@media (min-width: 900px) {
+
+    .contenedor {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    aside {
+        width: 240px;
+        position: sticky;
+        top: 0;
+        min-height: 100vh;
+    }
+
+    main {
+        width: calc(100% - 240px);
+        padding: 2.5rem;
+        max-width: 1200px;
+    }
+
+    .agentes {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .mapas {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+}
+
+
+/* =========================================
+   MONITORES GRANDES
+   1200px EN ADELANTE
+========================================= */
+
+@media (min-width: 1200px) {
+
+    main {
+        padding: 3rem;
+    }
+
+}

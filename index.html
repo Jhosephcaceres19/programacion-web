@@ -1,159 +1,14 @@
-<!DOCTYPE html><html lang="es"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>VALORANT</title>
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
 
-<style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background-color: #eeeeee;
-    }
+<title>VALORANT</title>
 
-    /* HEADER */
+<link rel="stylesheet" href="estilos.css">
 
-    header {
-        background-color: #ff4655;
-        color: white;
-        padding: 35px;
-        text-align: center;
-    }
-
-    header h1 {
-        font-size: 45px;
-        margin: 0;
-    }
-
-    header p {
-        font-size: 18px;
-    }
-
-    /* CONTENEDOR */
-
-    .contenedor {
-        display: flex;
-        min-height: 600px;
-    }
-
-    /* ASIDE */
-
-    aside {
-        width: 22%;
-        background-color: #202020;
-        color: white;
-        padding: 25px;
-    }
-
-    aside h2 {
-        color: #ff4655;
-    }
-
-    aside ul {
-        padding-left: 20px;
-    }
-
-    aside li {
-        margin-bottom: 20px;
-    }
-
-    /* MAIN */
-
-    main {
-        width: 78%;
-        padding: 35px;
-        background-color: #eeeeee;
-    }
-
-    main h2 {
-        color: #202020;
-        border-bottom: 2px solid #ff4655;
-        padding-bottom: 8px;
-    }
-
-    main h3 {
-        color: #ff4655;
-    }
-
-    /* DESTACADO */
-
-    .destacado {
-        background-color: #202020;
-        color: white;
-        padding: 25px;
-        margin-bottom: 30px;
-        border-left: 6px solid #ff4655;
-    }
-
-    .destacado h2 {
-        color: white;
-        border: none;
-    }
-
-    /* AGENTES */
-
-    .agentes {
-        display: flex;
-        gap: 20px;
-        flex-wrap: wrap;
-    }
-
-    .agente {
-        background-color: white;
-        width: 200px;
-        padding: 20px;
-        border: 1px solid #cccccc;
-    }
-
-    .agente h3 {
-        margin-top: 0;
-    }
-
-    /* MAPAS */
-
-    .mapas {
-        display: flex;
-        gap: 20px;
-        flex-wrap: wrap;
-    }
-
-    .mapa {
-        background-color: white;
-        padding: 20px;
-        width: 180px;
-        border-top: 5px solid #ff4655;
-    }
-
-    /* TABLA */
-
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        background-color: white;
-    }
-
-    th {
-        background-color: #202020;
-        color: white;
-    }
-
-    th, td {
-        padding: 12px;
-        border: 1px solid #cccccc;
-        text-align: left;
-    }
-
-    /* FOOTER */
-
-    footer {
-        background-color: #111111;
-        color: white;
-        padding: 30px;
-        text-align: center;
-    }
-
-</style>
-
-</head><body><!-- HEADER -->
+</head><body><!-- =========================
+     HEADER
+========================== -->
 
 <header>
 
@@ -166,12 +21,16 @@
 </header>
 
 
-<!-- CONTENIDO PRINCIPAL -->
+<!-- =========================
+     CONTENEDOR PRINCIPAL
+========================== -->
 
 <div class="contenedor">
 
 
-    <!-- ASIDE -->
+    <!-- =========================
+         MENÚ LATERAL
+    ========================== -->
 
     <aside>
 
@@ -211,15 +70,16 @@
     </aside>
 
 
-
-    <!-- MAIN -->
+    <!-- =========================
+         CONTENIDO PRINCIPAL
+    ========================== -->
 
     <main>
 
 
         <!-- SECCIÓN DESTACADA -->
 
-        <div class="destacado">
+        <section class="destacado">
 
             <h2>¡Bienvenido a VALORANT!</h2>
 
@@ -229,310 +89,337 @@
             </p>
 
             <p>
-                En cada partida tendrás que combinar estrategia,
-                precisión y trabajo en equipo.
+                Combina estrategia, precisión y trabajo
+                en equipo.
             </p>
 
-        </div>
-
+        </section>
 
 
         <!-- INFORMACIÓN -->
 
-        <h2>¿Qué es VALORANT?</h2>
+        <section>
 
-        <p>
-            VALORANT es un videojuego competitivo de disparos
-            en primera persona desarrollado por Riot Games.
-        </p>
+            <h2>¿Qué es VALORANT?</h2>
 
-        <p>
-            Los jugadores forman equipos y se enfrentan utilizando
-            diferentes armas y habilidades especiales.
-        </p>
+            <p>
+                VALORANT es un videojuego competitivo de disparos
+                en primera persona desarrollado por Riot Games.
+            </p>
 
-        <p>
-            Cada agente pertenece a un rol determinado y posee
-            habilidades únicas que pueden cambiar el desarrollo
-            de una ronda.
-        </p>
+            <p>
+                Los jugadores forman equipos y se enfrentan
+                utilizando diferentes armas y habilidades especiales.
+            </p>
 
+            <p>
+                Cada agente pertenece a un rol determinado y posee
+                habilidades únicas.
+            </p>
+
+        </section>
 
 
         <!-- AGENTES -->
 
-        <h2>Agentes</h2>
+        <section>
 
-        <p>
-            Los agentes son los personajes que podemos utilizar
-            durante las partidas. Cada uno tiene habilidades
-            diferentes.
-        </p>
+            <h2>Agentes</h2>
 
-
-        <div class="agentes">
+            <p>
+                Los agentes son los personajes que podemos utilizar
+                durante las partidas.
+            </p>
 
 
-            <div class="agente">
+            <div class="agentes">
 
-                <h3>Jett</h3>
 
-                <p>
-                    Duelista especializada en movilidad y
-                    enfrentamientos rápidos.
-                </p>
+                <article class="agente">
+
+                    <h3>Jett</h3>
+
+                    <p>
+                        Duelista especializada en movilidad y
+                        enfrentamientos rápidos.
+                    </p>
+
+                </article>
+
+
+                <article class="agente">
+
+                    <h3>Omen</h3>
+
+                    <p>
+                        Controlador capaz de utilizar humo y
+                        controlar diferentes zonas.
+                    </p>
+
+                </article>
+
+
+                <article class="agente">
+
+                    <h3>Sova</h3>
+
+                    <p>
+                        Iniciador especializado en obtener
+                        información sobre los enemigos.
+                    </p>
+
+                </article>
+
+
+                <article class="agente">
+
+                    <h3>Sage</h3>
+
+                    <p>
+                        Centinela que puede ayudar a su equipo
+                        mediante curación y control.
+                    </p>
+
+                </article>
+
 
             </div>
 
-
-            <div class="agente">
-
-                <h3>Omen</h3>
-
-                <p>
-                    Controlador capaz de utilizar humo y
-                    habilidades para controlar el mapa.
-                </p>
-
-            </div>
-
-
-            <div class="agente">
-
-                <h3>Sova</h3>
-
-                <p>
-                    Iniciador especializado en obtener
-                    información sobre los enemigos.
-                </p>
-
-            </div>
-
-
-            <div class="agente">
-
-                <h3>Sage</h3>
-
-                <p>
-                    Centinela que puede ayudar a su equipo
-                    mediante curación y control del terreno.
-                </p>
-
-            </div>
-
-
-        </div>
-
+        </section>
 
 
         <!-- ROLES -->
 
-        <h2>Roles principales</h2>
+        <section>
 
-        <ul>
+            <h2>Roles principales</h2>
 
-            <li>
-                <strong>Duelista:</strong>
-                especialistas en iniciar enfrentamientos.
-            </li>
+            <ul>
 
-            <li>
-                <strong>Controlador:</strong>
-                controlan zonas del mapa mediante habilidades.
-            </li>
+                <li>
+                    <strong>Duelista:</strong>
+                    especialistas en iniciar enfrentamientos.
+                </li>
 
-            <li>
-                <strong>Iniciador:</strong>
-                ayudan al equipo a conseguir información
-                y comenzar los enfrentamientos.
-            </li>
+                <li>
+                    <strong>Controlador:</strong>
+                    controlan zonas del mapa.
+                </li>
 
-            <li>
-                <strong>Centinela:</strong>
-                especialistas en defender zonas y apoyar
-                al equipo.
-            </li>
+                <li>
+                    <strong>Iniciador:</strong>
+                    ayudan a conseguir información.
+                </li>
 
-        </ul>
+                <li>
+                    <strong>Centinela:</strong>
+                    defienden zonas y apoyan al equipo.
+                </li>
 
+            </ul>
+
+        </section>
 
 
         <!-- MAPAS -->
 
-        <h2>Mapas</h2>
+        <section>
 
-        <p>
-            Las partidas se desarrollan en diferentes mapas,
-            cada uno con diseños y características particulares.
-        </p>
+            <h2>Mapas</h2>
+
+            <p>
+                Las partidas se desarrollan en diferentes mapas,
+                cada uno con características particulares.
+            </p>
 
 
-        <div class="mapas">
+            <div class="mapas">
 
 
-            <div class="mapa">
+                <article class="mapa">
 
-                <h3>Ascent</h3>
+                    <h3>Ascent</h3>
 
-                <p>
-                    Un mapa con una zona central importante
-                    para controlar.
-                </p>
+                    <p>
+                        Un mapa con una zona central importante
+                        para controlar.
+                    </p>
+
+                </article>
+
+
+                <article class="mapa">
+
+                    <h3>Bind</h3>
+
+                    <p>
+                        Conocido por sus dos zonas y
+                        teletransportadores.
+                    </p>
+
+                </article>
+
+
+                <article class="mapa">
+
+                    <h3>Haven</h3>
+
+                    <p>
+                        Cuenta con tres zonas donde se puede
+                        colocar la Spike.
+                    </p>
+
+                </article>
+
+
+                <article class="mapa">
+
+                    <h3>Split</h3>
+
+                    <p>
+                        Un mapa con diferentes niveles y
+                        zonas elevadas.
+                    </p>
+
+                </article>
+
 
             </div>
 
-
-            <div class="mapa">
-
-                <h3>Bind</h3>
-
-                <p>
-                    Conocido por sus dos zonas y sus
-                    teletransportadores.
-                </p>
-
-            </div>
-
-
-            <div class="mapa">
-
-                <h3>Haven</h3>
-
-                <p>
-                    Cuenta con tres zonas donde se puede
-                    colocar la Spike.
-                </p>
-
-            </div>
-
-
-            <div class="mapa">
-
-                <h3>Split</h3>
-
-                <p>
-                    Un mapa con diferentes niveles y
-                    zonas elevadas.
-                </p>
-
-            </div>
-
-
-        </div>
-
+        </section>
 
 
         <!-- ARMAS -->
 
-        <h2>Armas</h2>
+        <section>
 
-        <p>
-            Las armas son una parte fundamental de VALORANT.
-            Los jugadores pueden comprar diferentes armas
-            utilizando los créditos obtenidos durante las rondas.
-        </p>
+            <h2>Armas</h2>
 
-
-        <table>
-
-            <tr>
-
-                <th>Arma</th>
-
-                <th>Tipo</th>
-
-                <th>Característica</th>
-
-            </tr>
+            <p>
+                Los jugadores pueden comprar diferentes armas
+                utilizando los créditos obtenidos durante las rondas.
+            </p>
 
 
-            <tr>
+            <div class="tabla-contenedor">
 
-                <td>Vandal</td>
+                <table>
 
-                <td>Rifle</td>
+                    <thead>
 
-                <td>Alta precisión y daño</td>
+                        <tr>
 
-            </tr>
+                            <th>Arma</th>
 
+                            <th>Tipo</th>
 
-            <tr>
+                            <th>Característica</th>
 
-                <td>Phantom</td>
+                        </tr>
 
-                <td>Rifle</td>
-
-                <td>Buena cadencia de disparo</td>
-
-            </tr>
+                    </thead>
 
 
-            <tr>
+                    <tbody>
 
-                <td>Operator</td>
+                        <tr>
 
-                <td>Francotirador</td>
+                            <td>Vandal</td>
 
-                <td>Gran daño a larga distancia</td>
+                            <td>Rifle</td>
 
-            </tr>
+                            <td>Alta precisión y daño</td>
 
-
-            <tr>
-
-                <td>Sheriff</td>
-
-                <td>Pistola</td>
-
-                <td>Alto daño por disparo</td>
-
-            </tr>
-
-        </table>
+                        </tr>
 
 
+                        <tr>
 
-        <!-- MODOS -->
+                            <td>Phantom</td>
 
-        <h2>Modos de juego</h2>
+                            <td>Rifle</td>
 
-        <p>
-            VALORANT cuenta con diferentes modos de juego
-            para que los jugadores puedan practicar y competir.
-        </p>
+                            <td>Buena cadencia de disparo</td>
 
-        <ul>
+                        </tr>
 
-            <li>Competitivo</li>
 
-            <li>Partida normal</li>
+                        <tr>
 
-            <li>Swiftplay</li>
+                            <td>Operator</td>
 
-            <li>Deathmatch</li>
+                            <td>Francotirador</td>
 
-            <li>Spike Rush</li>
+                            <td>Gran daño a larga distancia</td>
 
-        </ul>
+                        </tr>
 
+
+                        <tr>
+
+                            <td>Sheriff</td>
+
+                            <td>Pistola</td>
+
+                            <td>Alto daño por disparo</td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- MODOS DE JUEGO -->
+
+        <section>
+
+            <h2>Modos de juego</h2>
+
+            <p>
+                VALORANT cuenta con diferentes modos de juego
+                para que los jugadores puedan practicar y competir.
+            </p>
+
+            <ul>
+
+                <li>Competitivo</li>
+
+                <li>Partida normal</li>
+
+                <li>Swiftplay</li>
+
+                <li>Deathmatch</li>
+
+                <li>Spike Rush</li>
+
+            </ul>
+
+        </section>
 
 
         <!-- ESTRATEGIA -->
 
-        <h2>¿Cómo ganar una partida?</h2>
+        <section>
 
-        <p>
-            Para conseguir la victoria no solamente es necesario
-            tener buena puntería.
-        </p>
+            <h2>¿Cómo ganar una partida?</h2>
 
-        <p>
-            La comunicación, el conocimiento del mapa,
-            la utilización de habilidades y el trabajo
-            en equipo son elementos importantes durante
-            una partida.
-        </p>
+            <p>
+                Para conseguir la victoria no solamente es necesario
+                tener buena puntería.
+            </p>
+
+            <p>
+                La comunicación, el conocimiento del mapa,
+                la utilización de habilidades y el trabajo
+                en equipo son elementos importantes.
+            </p>
+
+        </section>
 
 
     </main>
@@ -540,8 +427,9 @@
 </div>
 
 
-
-<!-- FOOTER -->
+<!-- =========================
+     FOOTER
+========================== -->
 
 <footer>
 
