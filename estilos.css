@@ -8,6 +8,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 20px;
 }
 
 body {
@@ -15,6 +16,7 @@ body {
     font-family: Arial, sans-serif;
     background-color: #eeeeee;
     color: #202020;
+    line-height: 1.6;
 }
 
 
@@ -26,7 +28,7 @@ header {
     background-color: #ff4655;
     color: white;
     text-align: center;
-    padding: 2rem 1rem;
+    padding: 2.5rem 1rem;
 }
 
 .header-contenido {
@@ -38,9 +40,11 @@ header {
 header h1 {
     margin: 0;
     font-size: clamp(2rem, 8vw, 4rem);
+    line-height: 1.1;
 }
 
 header p {
+    margin: 1rem 0 0;
     font-size: clamp(1rem, 3vw, 1.3rem);
 }
 
@@ -58,7 +62,7 @@ header p {
 
 
 /* =========================================
-   ASIDE / MENÚ
+   MENÚ LATERAL
 ========================================= */
 
 aside {
@@ -69,24 +73,38 @@ aside {
 }
 
 aside h2 {
+    margin-top: 0;
     color: #ff4655;
+    font-size: 1.4rem;
 }
 
 aside ul {
-    padding-left: 1.2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 aside li {
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
 }
 
 aside a {
+    display: block;
+    padding: 0.8rem 1rem;
     color: white;
     text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.2s, color 0.2s;
 }
 
-aside a:hover {
-    color: #ff4655;
+aside a:hover,
+aside a:focus {
+    background-color: #ff4655;
+    color: white;
+}
+
+aside a:active {
+    transform: scale(0.98);
 }
 
 
@@ -102,8 +120,9 @@ main {
 }
 
 main h2 {
+    margin-top: 0;
     color: #202020;
-    border-bottom: 2px solid #ff4655;
+    border-bottom: 3px solid #ff4655;
     padding-bottom: 0.5rem;
     font-size: clamp(1.4rem, 4vw, 2rem);
 }
@@ -113,7 +132,7 @@ main h3 {
 }
 
 main p {
-    line-height: 1.6;
+    max-width: 75ch;
 }
 
 
@@ -122,7 +141,8 @@ main p {
 ========================================= */
 
 section {
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
+    scroll-margin-top: 20px;
 }
 
 
@@ -133,9 +153,10 @@ section {
 .destacado {
     background-color: #202020;
     color: white;
-    padding: clamp(1.2rem, 4vw, 2rem);
+    padding: clamp(1.5rem, 5vw, 2.5rem);
     border-left: 5px solid #ff4655;
-    border-radius: 4px;
+    border-radius: 8px;
+    margin-bottom: 2rem;
 }
 
 .destacado h2 {
@@ -143,46 +164,72 @@ section {
     border-bottom: none;
 }
 
+.destacado p {
+    max-width: 70ch;
+}
+
 
 /* =========================================
-   AGENTES
-   MOBILE: 1 COLUMNA
+   TARJETAS DE AGENTES
 ========================================= */
 
 .agentes {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 1.2rem;
 }
 
 .agente {
     background-color: white;
-    padding: 1.2rem;
-    border: 1px solid #cccccc;
-    border-radius: 5px;
+    padding: 1.4rem;
+    border: 1px solid #d5d5d5;
+    border-radius: 8px;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
 }
 
 .agente h3 {
     margin-top: 0;
 }
 
+.agente:hover {
+    transform: translateY(-4px);
+    border-color: #ff4655;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+}
+
 
 /* =========================================
    MAPAS
-   MOBILE: 1 COLUMNA
 ========================================= */
 
 .mapas {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 1.2rem;
 }
 
 .mapa {
     background-color: white;
-    padding: 1.2rem;
+    padding: 1.4rem;
     border-top: 5px solid #ff4655;
-    border-radius: 4px;
+    border-radius: 8px;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.mapa h3 {
+    margin-top: 0;
+}
+
+.mapa:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
 }
 
 
@@ -193,6 +240,8 @@ section {
 .tabla-contenedor {
     width: 100%;
     overflow-x: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 table {
@@ -209,9 +258,22 @@ th {
 
 th,
 td {
-    padding: 0.8rem;
+    padding: 0.9rem;
     border: 1px solid #cccccc;
     text-align: left;
+}
+
+tr:hover td {
+    background-color: #f7f7f7;
+}
+
+
+/* =========================================
+   ENLACES GENERALES
+========================================= */
+
+a {
+    transition: 0.2s ease;
 }
 
 
@@ -224,6 +286,7 @@ footer {
     color: white;
     text-align: center;
     padding: 2rem 1rem;
+    margin-top: 2rem;
 }
 
 footer p {
@@ -254,7 +317,7 @@ footer p {
 
 
 /* =========================================
-   LAPTOP / COMPUTADORA
+   LAPTOP
    900px EN ADELANTE
 ========================================= */
 
@@ -267,15 +330,17 @@ footer p {
 
     aside {
         width: 240px;
+        min-width: 240px;
+        min-height: 100vh;
+
         position: sticky;
         top: 0;
-        min-height: 100vh;
     }
 
     main {
         width: calc(100% - 240px);
-        padding: 2.5rem;
         max-width: 1200px;
+        padding: 2.5rem;
     }
 
     .agentes {
@@ -298,6 +363,46 @@ footer p {
 
     main {
         padding: 3rem;
+    }
+
+}
+
+
+/* =========================================
+   PANTALLAS TÁCTILES
+========================================= */
+
+@media (hover: none) {
+
+    aside a {
+        padding: 1rem;
+    }
+
+    .agente:hover,
+    .mapa:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+}
+
+
+/* =========================================
+   REDUCIR ANIMACIONES
+   PARA USUARIOS QUE LO PREFIEREN
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+        animation: none !important;
     }
 
 }
