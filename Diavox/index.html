@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Diavox - Convierte texto en presentaciones visuales profesionales">
+    <title>Diavox | Texto a Presentaciones</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <header class="navbar" role="banner">
+        <div class="container navbar-container">
+            <a href="#" class="logo" aria-label="Diavox - Inicio">
+                <img src="assets/images/logo/diavox-logo.png" alt="" class="logo-icon">
+                <span class="logo-text">Diavox</span>
+            </a>
+            <nav class="nav-links" role="navigation" aria-label="Navegación principal">
+                <a href="#inicio" class="nav-link active" data-section="inicio">Inicio</a>
+                <a href="#generador" class="nav-link" data-section="generador">Generador</a>
+                <a href="#ejemplos" class="nav-link" data-section="ejemplos">Ejemplos</a>
+                <a href="#acerca" class="nav-link" data-section="acerca">Acerca</a>
+            </nav>
+            <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menú">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Sección principal / Hero -->
+    <main id="main-content" role="main">
+        <section id="inicio" class="hero" aria-labelledby="hero-title">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <h1 id="hero-title" class="hero-title">
+                        Convierte tus ideas en
+                        <span class="highlight">presentaciones visuales</span>
+                    </h1>
+                    <p class="hero-description">
+                        Diavox transforma tu texto, artículos o apuntes en diapositivas profesionales
+                        al instante. Diseño elegante, navegación fluida y modo presentación incluido.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#generador" class="btn btn-primary btn-lg" role="button">
+                            <span class="btn-icon" aria-hidden="true">✨</span>
+                            Comenzar ahora
+                        </a>
+                        <a href="#ejemplos" class="btn btn-secondary btn-lg" role="button">
+                            Ver ejemplos
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">3</span>
+                            <span class="stat-label">Pasos simples</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">6+</span>
+                            <span class="stat-label">Diseños de diapositivas</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Funciona offline</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual" aria-hidden="true">
+                    <div class="preview-frame">
+                        <div class="preview-slides">
+                            <div class="preview-slide active" data-type="cover">
+                                <div class="slide-content">
+                                    <h2>Título de tu presentación</h2>
+                                    <p>Subtítulo descriptivo</p>
+                                </div>
+                            </div>
+                            <div class="preview-slide" data-type="content">
+                                <div class="slide-content">
+                                    <h3>Punto principal</h3>
+                                    <ul>
+                                        <li>Idea clave 1</li>
+                                        <li>Idea clave 2</li>
+                                        <li>Idea clave 3</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="preview-slide" data-type="two-column">
+                                <div class="slide-content">
+                                    <div class="col">
+                                        <h3>Columna izquierda</h3>
+                                        <p>Contenido relacionado</p>
+                                    </div>
+                                    <div class="col">
+                                        <h3>Columna derecha</h3>
+                                        <p>Más información</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="preview-nav">
+                            <button class="preview-dot active" aria-label="Diapositiva 1"></button>
+                            <button class="preview-dot" aria-label="Diapositiva 2"></button>
+                            <button class="preview-dot" aria-label="Diapositiva 3"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-scroll" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 5v14M19 12l-7 7-7-7"/>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Generador de presentaciones -->
+        <section id="generador" class="generator-section" aria-labelledby="generator-title">
+            <div class="container">
+                <header class="section-header">
+                    <h2 id="generator-title" class="section-title">Genera tu presentación</h2>
+                    <p class="section-subtitle">Escribe o pega tu contenido y Diavox creará las diapositivas por ti</p>
+                </header>
+
+                <div class="generator-layout">
+                    <!-- Panel de entrada -->
+                    <div class="input-panel" role="region" aria-label="Entrada de contenido">
+                        <div class="panel-header">
+                            <h3 class="panel-title">Tu contenido</h3>
+                            <div class="panel-actions">
+                                <button class="btn btn-ghost btn-sm" id="clear-btn" aria-label="Limpiar contenido">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+                                    Limpiar
+                                </button>
+                                <button class="btn btn-ghost btn-sm" id="load-example-btn" aria-label="Cargar ejemplo">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M17 21l-5-5-5 5"/></svg>
+                                    Ejemplo
+                                </button>
+                            </div>
+                        </div>
+                        <div class="textarea-wrapper">
+                            <textarea
+                                id="content-input"
+                                class="content-textarea"
+                                placeholder="Escribe aquí tu tema, artículo, apuntes o cualquier texto que quieras convertir en presentación...
+
+Ejemplo:
+# Inteligencia Artificial en la Educación
+
+## Introducción
+La inteligencia artificial está transformando la forma en que aprendemos y enseñamos...
+
+## Beneficios principales
+- Personalización del aprendizaje
+- Retroalimentación inmediata
+- Accesibilidad mejorada
+
+## Desafíos
+La implementación requiere infraestructura y capacitación docente.
+
+## Conclusión
+La IA complementa, no reemplaza, el rol del educador."
+                                aria-label="Contenido para generar presentación"
+                                spellcheck="true"
+                            ></textarea>
+                            <div class="textarea-hint">
+                                <span class="hint-icon" aria-hidden="true">💡</span>
+                                <span>Usa # para títulos, ## para subtítulos, guiones para listas</span>
+                            </div>
+                        </div>
+                        <div class="input-footer">
+                            <div class="char-count" aria-live="polite">
+                                <span id="char-count">0</span> caracteres
+                            </div>
+                            <button
+                                id="generate-btn"
+                                class="btn btn-primary btn-lg btn-block"
+                                type="button"
+                                aria-label="Generar presentación"
+                            >
+                                <span class="btn-loader" aria-hidden="true"></span>
+                                <span class="btn-text">Generar presentación</span>
+                            </button>
+                        </div>
+                        <div id="error-message" class="error-message" role="alert" aria-live="assertive" hidden></div>
+                    </div>
+
+                    <!-- Panel de vista previa -->
+                    <div class="preview-panel" role="region" aria-label="Vista previa de diapositivas" hidden>
+                        <div class="panel-header">
+                            <h3 class="panel-title">Vista previa</h3>
+                            <div class="panel-actions">
+                                <button class="btn btn-ghost btn-sm" id="edit-mode-btn" aria-label="Modo edición" aria-pressed="false">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                                    Editar
+                                </button>
+                                <button class="btn btn-secondary btn-sm" id="present-btn" aria-label="Modo presentación">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                                    Presentar
+                                </button>
+                                <button class="btn btn-primary btn-sm" id="export-btn" aria-label="Exportar como PDF">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M17 21l-5-5-5 5"/></svg>
+                                    Exportar PDF
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Navegación de diapositivas -->
+                        <div class="slide-navigation" role="navigation" aria-label="Navegación de diapositivas">
+                            <button class="nav-btn nav-prev" id="prev-slide" aria-label="Diapositiva anterior" disabled>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+                            </button>
+                            <div class="slide-indicator" aria-live="polite">
+                                <span id="current-slide">1</span> / <span id="total-slides">1</span>
+                            </div>
+                            <button class="nav-btn nav-next" id="next-slide" aria-label="Diapositiva siguiente" disabled>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                            </button>
+                        </div>
+
+                        <!-- Área de diapositiva actual -->
+                        <div class="slide-viewport" role="region" aria-label="Diapositiva actual">
+                            <div id="slide-container" class="slide-container">
+                                <div class="empty-state" id="empty-state">
+                                    <svg class="empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                        <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+                                    </svg>
+                                    <h3>No hay presentación aún</h3>
+                                    <p>Escribe tu contenido y haz clic en "Generar presentación"</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Miniaturas -->
+                        <div class="thumbnails-container" role="list" aria-label="Miniaturas de diapositivas">
+                            <div class="thumbnails-header">
+                                <h4 class="thumbnails-title">Diapositivas</h4>
+                                <button class="btn btn-ghost btn-sm" id="toggle-thumbnails" aria-expanded="true" aria-controls="thumbnails-list" aria-label="Ocultar miniaturas">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                                </button>
+                            </div>
+                            <div id="thumbnails-list" class="thumbnails-list" role="listbox" aria-label="Lista de diapositivas"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ejemplos -->
+        <section id="ejemplos" class="examples-section" aria-labelledby="examples-title">
+            <div class="container">
+                <header class="section-header">
+                    <h2 id="examples-title" class="section-title">Ejemplos listos para usar</h2>
+                    <p class="section-subtitle">Haz clic en cualquier ejemplo para cargarlo y ver cómo funciona Diavox</p>
+                </header>
+                <div class="examples-grid" role="list">
+                    <article class="example-card" role="listitem" data-example="academic">
+                        <div class="example-icon" aria-hidden="true">🎓</div>
+                        <h3 class="example-title">Artículo académico</h3>
+                        <p class="example-desc">Paper de investigación con introducción, metodología, resultados y conclusiones</p>
+                        <button class="btn btn-outline btn-sm load-example" data-example="academic">Cargar</button>
+                    </article>
+                    <article class="example-card" role="listitem" data-example="business">
+                        <div class="example-icon" aria-hidden="true">💼</div>
+                        <h3 class="example-title">Propuesta de negocio</h3>
+                        <p class="example-desc">Pitch deck con problema, solución, mercado, modelo de negocio y equipo</p>
+                        <button class="btn btn-outline btn-sm load-example" data-example="business">Cargar</button>
+                    </article>
+                    <article class="example-card" role="listitem" data-example="educational">
+                        <div class="example-icon" aria-hidden="true">📚</div>
+                        <h3 class="example-title">Clase educativa</h3>
+                        <p class="example-desc">Lección estructurada con objetivos, contenidos, actividades y evaluación</p>
+                        <button class="btn btn-outline btn-sm load-example" data-example="educational">Cargar</button>
+                    </article>
+                    <article class="example-card" role="listitem" data-example="technical">
+                        <div class="example-icon" aria-hidden="true">⚙️</div>
+                        <h3 class="example-title">Documentación técnica</h3>
+                        <p class="example-desc">Guía técnica con arquitectura, componentes, API y ejemplos de código</p>
+                        <button class="btn btn-outline btn-sm load-example" data-example="technical">Cargar</button>
+                    </article>
+                    <article class="example-card" role="listitem" data-example="creative">
+                        <div class="example-icon" aria-hidden="true">🎨</div>
+                        <h3 class="example-title">Proyecto creativo</h3>
+                        <p class="example-desc">Portafolio o propuesta creativa con concepto, proceso y resultados</p>
+                        <button class="btn btn-outline btn-sm load-example" data-example="creative">Cargar</button>
+                    </article>
+                    <article class="example-card" role="listitem" data-example="meeting">
+                        <div class="example-icon" aria-hidden="true">📋</div>
+                        <h3 class="example-title">Acta de reunión</h3>
+                        <p class="example-desc">Resumen de reunión con agenda, decisiones, tareas y próximos pasos</p>
+                        <button class="btn btn-outline btn-sm load-example" data-example="meeting">Cargar</button>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Acerca de -->
+        <section id="acerca" class="about-section" aria-labelledby="about-title">
+            <div class="container">
+                <header class="section-header">
+                    <h2 id="about-title" class="section-title">Sobre Diavox</h2>
+                    <p class="section-subtitle">Una herramienta creada para simplificar la creación de presentaciones</p>
+                </header>
+                <div class="about-grid">
+                    <article class="about-card">
+                        <div class="about-icon" aria-hidden="true">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 18 2 12 8 6"/></svg>
+                        </div>
+                        <h3>Procesamiento local</h3>
+                        <p>Todo ocurre en tu navegador. Sin servidores, sin subida de datos, total privacidad.</p>
+                    </article>
+                    <article class="about-card">
+                        <div class="about-icon" aria-hidden="true">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        </div>
+                        <h3>Cero dependencias</h3>
+                        <p>HTML, CSS y JavaScript puro. Sin frameworks, sin build, funciona al instante.</p>
+                    </article>
+                    <article class="about-card">
+                        <div class="about-icon" aria-hidden="true">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                        </div>
+                        <h3>Diseño responsive</h3>
+                        <p>Se adapta a cualquier pantalla: móvil, tablet, escritorio y modo presentación.</p>
+                    </article>
+                    <article class="about-card">
+                        <div class="about-icon" aria-hidden="true">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <h3>Código abierto</h3>
+                        <p>Proyecto académico transparente. Puedes estudiar, modificar y extender el código.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="#" class="logo" aria-label="Diavox - Inicio">
+                    <img src="assets/images/logo/diavox-logo.png" alt="" class="logo-icon">
+                    <span class="logo-text">Diavox</span>
+                </a>
+                <p class="footer-tagline">Texto a presentaciones, simplificado.</p>
+            </div>
+            <nav class="footer-links" aria-label="Enlaces del pie de página">
+                <a href="#generador" class="footer-link">Generador</a>
+                <a href="#ejemplos" class="footer-link">Ejemplos</a>
+                <a href="#acerca" class="footer-link">Acerca</a>
+            </nav>
+            <p class="footer-copyright">
+                Proyecto académico — Jose Caceres Aramayo & Carlos Fabrizhio Chavarria Pereyra
+            </p>
+        </div>
+    </footer>
+
+    <!-- Modal de edición de diapositiva -->
+    <dialog id="edit-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="edit-modal-title">
+        <div class="modal-backdrop" tabindex="-1"></div>
+        <div class="modal-content">
+            <header class="modal-header">
+                <h2 id="edit-modal-title" class="modal-title">Editar diapositiva</h2>
+                <button class="modal-close" id="close-edit-modal" aria-label="Cerrar modal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </header>
+            <div class="modal-body">
+                <form id="edit-form" class="edit-form">
+                    <div class="form-group">
+                        <label for="edit-slide-title" class="form-label">Título de la diapositiva</label>
+                        <input type="text" id="edit-slide-title" class="form-input" aria-label="Título de la diapositiva">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-slide-content" class="form-label">Contenido</label>
+                        <textarea id="edit-slide-content" class="form-textarea" rows="6" aria-label="Contenido de la diapositiva"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-slide-type" class="form-label">Tipo de diseño</label>
+                        <select id="edit-slide-type" class="form-select" aria-label="Tipo de diseño de diapositiva">
+                            <option value="cover">Portada</option>
+                            <option value="content">Contenido (título + párrafos)</option>
+                            <option value="bullet-list">Lista de puntos</option>
+                            <option value="two-column">Dos columnas</option>
+                            <option value="conclusion">Conclusión</option>
+                            <option value="section">Separador de sección</option>
+                        </select>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="cancel-edit">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- Modo presentación (overlay) -->
+    <div id="presentation-mode" class="presentation-mode" role="dialog" aria-modal="true" aria-label="Modo presentación" hidden>
+        <div class="presentation-slide" id="presentation-slide" role="img" aria-label="Diapositiva en presentación">
+            <!-- El contenido se inyecta dinámicamente -->
+        </div>
+        <div class="presentation-controls" role="navigation" aria-label="Controles de presentación">
+            <button class="presentation-btn" id="pres-prev" aria-label="Diapositiva anterior">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <div class="presentation-counter" aria-live="polite">
+                <span id="pres-current">1</span> / <span id="pres-total">1</span>
+            </div>
+            <button class="presentation-btn" id="pres-next" aria-label="Diapositiva siguiente">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+            <button class="presentation-btn presentation-exit" id="pres-exit" aria-label="Salir de presentación (Esc)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        </div>
+        <div class="presentation-hint" aria-hidden="true">
+            <kbd>←</kbd> <kbd>→</kbd> Navegar &nbsp;|&nbsp; <kbd>Esc</kbd> Salir &nbsp;|&nbsp; <kbd>F</kbd> Pantalla completa
+        </div>
+    </div>
+
+    <!-- Toast notifications -->
+    <div id="toast-container" class="toast-container" role="region" aria-label="Notificaciones" aria-live="polite"></div>
+
+    <script src="js/generator.js"></script>
+    <script src="js/presentation.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
