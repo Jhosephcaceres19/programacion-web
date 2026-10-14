@@ -226,8 +226,13 @@ const PresentationMode = (function() {
 
         // Mostrar contenedor y ocultar estado vacío
         const emptyState = document.getElementById('empty-state');
-        if (emptyState) emptyState.hidden = true;
+        if (emptyState) {
+            emptyState.hidden = true;
+            emptyState.removeAttribute('hidden');
+        }
         slideContainer.hidden = false;
+        slideContainer.removeAttribute('hidden');
+        slideContainer.style.display = '';
 
         slideContainer.innerHTML = slide.html;
 

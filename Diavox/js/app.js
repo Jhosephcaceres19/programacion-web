@@ -592,6 +592,8 @@ Diavox es una herramienta que convierte tu texto en presentaciones visuales prof
 
             // Mostrar panel de vista previa
             elements.previewPanel.hidden = false;
+            elements.previewPanel.removeAttribute('hidden'); // Fallback
+            elements.previewPanel.style.display = ''; // Ensure visible
             elements.previewPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
             showToast(`Presentación generada: ${presentation.totalSlides} diapositivas`, 'success');
