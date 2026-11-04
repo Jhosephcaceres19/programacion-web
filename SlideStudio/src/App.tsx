@@ -1,10 +1,14 @@
 
 export const App = () => {
   return (
-    <div className="bg-amber-700">App
     
-    <h1>hola soy programacion web dia 2
+    <main className="min-h-screen p-8 bg-sky-700">
+      <h1 className="text-3xl font-bold">
+        SlideStudio
       </h1>
-      </div>
+      <p>
+        Mi aplicacion de presentacion
+      </p>
+    </main>
   )
 }
