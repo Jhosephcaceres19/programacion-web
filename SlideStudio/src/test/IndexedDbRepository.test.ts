@@ -12,8 +12,8 @@ describe('IndexedDbProjectRepository', () => {
     id: 'project-1',
     name: 'Mi primera presentación',
     description: 'Proyecto de prueba',
-    slides: [],
-    
+    slide: [],
+
     createdAt: '2026-11-11T10:00:00.000Z',
     updatedAt: '2026-11-11T10:00:00.000Z',
   };
