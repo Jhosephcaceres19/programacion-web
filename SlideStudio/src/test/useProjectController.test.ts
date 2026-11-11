@@ -66,7 +66,7 @@ describe('useProjectController', () => {
     expect(repository.save).toHaveBeenCalledWith(
       expect.objectContaining({
         name: 'Nuevo proyecto',
-        slides: [],
+        slide: [],
       }),
     );
   });
