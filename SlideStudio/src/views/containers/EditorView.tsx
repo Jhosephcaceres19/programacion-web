@@ -1,4 +1,5 @@
-import { useState } from 'react';
+
+import { useEffect, useState } from 'react';
 
 import type { Project } from '../../models/Project';
 import type { Slide, SlideLayout } from '../../models/Slide';
@@ -18,7 +19,6 @@ export default function EditorView({
   onStartPresentation,
   onBack,
 }: EditorViewProps) {
-
   const [selectedSlideId, setSelectedSlideId] = useState(
     project.slide[0]?.id ?? '',
   );
@@ -30,6 +30,20 @@ export default function EditorView({
   const selectedSlide = slides.find(
     (slide) => slide.id === selectedSlideId,
   );
+
+  // Mantener una diapositiva seleccionada si cambia el proyecto
+  // o si se elimina la diapositiva que estaba seleccionada.
+  useEffect(() => {
+    const stillExists = project.slide.some(
+      (slide) => slide.id === selectedSlideId,
+    );
+
+    if (!stillExists) {
+      setSelectedSlideId(
+        [...project.slide].sort((a, b) => a.order - b.order)[0]?.id ?? '',
+      );
+    }
+  }, [project.id, project.slide, selectedSlideId]);
 
   function updateSlide(
     id: string,
@@ -104,9 +118,7 @@ export default function EditorView({
       updatedAt: new Date().toISOString(),
     });
 
-    setSelectedSlideId(
-      updatedSlides[0]?.id ?? '',
-    );
+    setSelectedSlideId(updatedSlides[0]?.id ?? '');
   }
 
   function updateProjectMetadata(
@@ -125,7 +137,6 @@ export default function EditorView({
 
       {/* Barra superior */}
       <header className="bg-slate-950 text-white px-6 py-4 flex flex-wrap items-center justify-between gap-4">
-
         <div>
           <button
             onClick={onBack}
@@ -140,7 +151,6 @@ export default function EditorView({
         </div>
 
         <div className="flex gap-3">
-
           <button
             onClick={addSlide}
             className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg text-sm"
@@ -155,22 +165,18 @@ export default function EditorView({
           >
             Presentar
           </button>
-
         </div>
-
       </header>
 
       <main className="grid grid-cols-1 lg:grid-cols-[240px_1fr_320px] min-h-[calc(100vh-80px)]">
 
-        {/* Panel de diapositivas */}
+        {/* Panel izquierdo: diapositivas */}
         <aside className="bg-white border-r border-slate-200 p-4">
-
           <h2 className="font-bold text-slate-700 mb-4">
             Diapositivas ({slides.length})
           </h2>
 
           <div className="space-y-3">
-
             {slides.map((slide, index) => (
               <button
                 key={slide.id}
@@ -192,18 +198,19 @@ export default function EditorView({
                 <p className="text-xs text-slate-500 mt-1">
                   {slide.type === 'title'
                     ? 'Portada'
-                    : slide.layout}
+                    : slide.layout === 'text-only'
+                      ? 'Solo texto'
+                      : slide.layout === 'image-only'
+                        ? 'Solo imagen'
+                        : 'Texto e imagen'}
                 </p>
               </button>
             ))}
-
           </div>
-
         </aside>
 
-        {/* Área de previsualización */}
+        {/* Área central: edición directa de la diapositiva */}
         <section className="p-4 md:p-8 flex flex-col items-center justify-center min-w-0">
-
           {selectedSlide ? (
             <>
               <div className="w-full max-w-5xl aspect-video shadow-xl overflow-hidden rounded-lg">
@@ -215,11 +222,16 @@ export default function EditorView({
                     ) + 1
                   }
                   totalSlides={slides.length}
+                  editable={true}
+                  onSlideChange={(changes) =>
+                    updateSlide(selectedSlide.id, changes)
+                  }
                 />
               </div>
 
-              <p className="text-sm text-slate-500 mt-4">
-                Vista previa de la diapositiva seleccionada
+              <p className="text-sm text-slate-500 mt-4 text-center">
+                Haz clic sobre el título, texto o imagen para editar
+                directamente la diapositiva.
               </p>
             </>
           ) : (
@@ -236,12 +248,10 @@ export default function EditorView({
               </button>
             </div>
           )}
-
         </section>
 
-        {/* Panel de edición */}
+        {/* Panel derecho: propiedades tradicionales */}
         <aside className="bg-white border-l border-slate-200 p-5">
-
           <h2 className="font-bold text-lg text-slate-800 mb-5">
             Propiedades
           </h2>
@@ -298,17 +308,9 @@ export default function EditorView({
                     }
                     className="w-full border rounded-lg px-3 py-2"
                   >
-                    <option value="text-only">
-                      Solo texto
-                    </option>
-
-                    <option value="image-only">
-                      Solo imagen
-                    </option>
-
-                    <option value="text-and-image">
-                      Texto e imagen
-                    </option>
+                    <option value="text-only">Solo texto</option>
+                    <option value="image-only">Solo imagen</option>
+                    <option value="text-and-image">Texto e imagen</option>
                   </select>
                 </div>
               )}
@@ -343,10 +345,7 @@ export default function EditorView({
                   type="text"
                   value={selectedSlide.author ?? ''}
                   onChange={(event) =>
-                    updateProjectMetadata(
-                      'author',
-                      event.target.value,
-                    )
+                    updateProjectMetadata('author', event.target.value)
                   }
                   className="w-full border rounded-lg px-3 py-2"
                 />
@@ -361,10 +360,7 @@ export default function EditorView({
                   type="text"
                   value={selectedSlide.topic ?? ''}
                   onChange={(event) =>
-                    updateProjectMetadata(
-                      'topic',
-                      event.target.value,
-                    )
+                    updateProjectMetadata('topic', event.target.value)
                   }
                   className="w-full border rounded-lg px-3 py-2"
                 />
@@ -378,18 +374,14 @@ export default function EditorView({
                   Eliminar diapositiva
                 </button>
               )}
-
             </div>
           ) : (
             <p className="text-slate-400 text-sm">
               Selecciona una diapositiva para editarla.
             </p>
           )}
-
         </aside>
-
       </main>
-
     </div>
   );
 }

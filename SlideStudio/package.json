@@ -8,9 +8,9 @@
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test": "bun test --preload ./src/test/setup.ts",
+    "test:watch": "bun test --watch --preload ./src/test/setup.ts",
+  "test:coverage": "bun test --coverage --preload ./src/test/setup.ts"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",
