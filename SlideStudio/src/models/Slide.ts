@@ -10,6 +10,11 @@ export interface Slide {
   type: SlideType;
   layout: SlideLayout;
   imageUrl?: string;
+
+  author?: string;
+  topic?: string;
+  date?: string;
+  
   order: number;
   createdAt: string;
   updatedAt: string;
