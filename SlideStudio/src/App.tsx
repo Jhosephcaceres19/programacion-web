@@ -4,6 +4,7 @@ import type { Project } from '../src/models/Project';
 import type { Slide } from '../src/models/Slide';
 
 import { IndexedDbProjectRepository } from '../src/infrastructure/IndexDbProjectRepository';
+import { PresentationExporter } from './infrastructure/PresentationExporter';
 import { useProjectController } from '../src/controllers/useProjectController';
 
 // import EditorView from './containers/EditorView';
@@ -15,6 +16,7 @@ export default function App() {
     () => new IndexedDbProjectRepository(),
     [],
   );
+  const exporter = useMemo(() => new PresentationExporter(), []);
 
   const {
     projects,
@@ -121,6 +123,7 @@ export default function App() {
         onProjectChange={saveProject}
         onStartPresentation={() => setIsPresentation(true)}
         onBack={() => setSelectedProjectId(null)}
+        exporter={exporter}
       />
     );
   }

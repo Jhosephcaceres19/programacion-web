@@ -10,10 +10,11 @@
     "preview": "vite preview",
     "test": "bun test --preload ./src/test/setup.ts",
     "test:watch": "bun test --watch --preload ./src/test/setup.ts",
-  "test:coverage": "bun test --coverage --preload ./src/test/setup.ts"
+    "test:coverage": "bun test --coverage --preload ./src/test/setup.ts"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",
+    "pptxgenjs": "^4.0.1",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "tailwindcss": "^4.3.3"

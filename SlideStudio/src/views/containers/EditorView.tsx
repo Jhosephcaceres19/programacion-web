@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 
 import type { Project } from '../../models/Project';
 import type { Slide, SlideLayout } from '../../models/Slide';
+import type { IExporter } from '../../models/ports/IExporter';
 
 import SlideRenderer from '../components/SlideRenderer';
 
@@ -11,6 +12,7 @@ interface EditorViewProps {
   onProjectChange: (project: Project) => void;
   onStartPresentation: () => void;
   onBack: () => void;
+  exporter: IExporter;
 }
 
 export default function EditorView({
@@ -18,6 +20,7 @@ export default function EditorView({
   onProjectChange,
   onStartPresentation,
   onBack,
+  exporter,
 }: EditorViewProps) {
   const [selectedSlideId, setSelectedSlideId] = useState(
     project.slide[0]?.id ?? '',
@@ -150,7 +153,35 @@ export default function EditorView({
           </h1>
         </div>
 
-        <div className="flex gap-3">
+        <div className="flex flex-wrap gap-2">
+          <button
+            onClick={() => void exporter.exportHtml(project).catch(() => {
+              window.alert('No se pudo exportar la presentación HTML.');
+            })}
+            className="bg-slate-700 hover:bg-slate-600 px-3 py-2 rounded-lg text-sm"
+            title="Descargar una presentación HTML independiente"
+          >
+            Exportar HTML
+          </button>
+
+          <button
+            onClick={() => exporter.exportPdf(project)}
+            className="bg-slate-700 hover:bg-slate-600 px-3 py-2 rounded-lg text-sm"
+            title="Imprimir o guardar la presentación como PDF"
+          >
+            Exportar PDF
+          </button>
+
+          <button
+            onClick={() => void exporter.exportPowerPoint(project).catch(() => {
+              window.alert('No se pudo exportar la presentación PowerPoint.');
+            })}
+            className="bg-orange-600 hover:bg-orange-700 px-3 py-2 rounded-lg text-sm"
+            title="Descargar un archivo compatible con PowerPoint y LibreOffice Impress"
+          >
+            Exportar PowerPoint
+          </button>
+
           <button
             onClick={addSlide}
             className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg text-sm"

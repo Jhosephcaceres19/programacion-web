@@ -1,32 +1,49 @@
-# React + TypeScript + Vite
+# SlideStudio
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Aplicación web para crear, editar y presentar diapositivas. Los proyectos se guardan localmente en IndexedDB.
 
-Currently, two official plugins are available:
+## Requisitos e instalación
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Node.js 20.19+ o 22.12+
+- Bun 1.4+ para instalar desde `bun.lock` y ejecutar las pruebas
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```sh
+bun install
+bun run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Vite muestra la dirección local para abrir SlideStudio. Para compilar la versión de producción:
+
+```sh
+bun run build
+```
+
+## Exportar una presentación
+
+Abre un proyecto en el editor y elige una opción de exportación:
+
+- **Exportar HTML** descarga una presentación autocontenida en un archivo `.html`, con navegación por botones o flechas del teclado. El exportador incrusta las imágenes accesibles; las URL que bloquean la descarga de imágenes por CORS permanecen como URL y necesitan conexión.
+- **Exportar PDF** abre la vista de impresión del navegador. Elige **Guardar como PDF** en el diálogo de impresión; usa orientación horizontal para conservar el formato de diapositiva.
+- **Exportar PowerPoint** descarga `.pptx`, que puede abrirse y editarse en Microsoft PowerPoint o LibreOffice Impress. Las imágenes disponibles desde el navegador se incorporan al archivo.
+
+El diseño de exportación conserva el orden de las diapositivas y sus contenidos, portadas, diseños de texto e imagen, autor y numeración.
+
+## Estructura
+
+- `src/models`: modelos de proyecto y diapositiva y el contrato `IExporter`.
+- `src/controllers`: lógica de acceso a proyectos y persistencia.
+- `src/infrastructure`: repositorio IndexedDB y adaptador de exportación HTML, impresión PDF y `.pptx`.
+- `src/views`: editor, presentación y componentes de diseño.
+- `src/App.tsx`: composición de dependencias y navegación entre vistas.
+
+El editor recibe `IExporter` por inyección; la implementación de formatos vive en infraestructura, separada de los modelos y las vistas.
+
+## Comprobaciones
+
+```sh
+bun test --preload ./src/test/setup.ts
+bun run lint
+bun run build
+```
+
+La compilación de TypeScript y Vite valida el empaquetado de la aplicación. Las pruebas cubren el controlador de proyectos y el repositorio IndexedDB.
